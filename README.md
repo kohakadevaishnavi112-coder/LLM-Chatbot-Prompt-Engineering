@@ -1,99 +1,139 @@
-# LLM Chatbot with Prompt Engineering
+# 🤖 LLM Chatbot with Prompt Engineering
 
-A beginner-friendly mini project using Python, Streamlit, and the Gemini API.
+A beginner-friendly Large Language Model (LLM) chatbot built using **Python, Streamlit, and the Google Gemini API**. This project demonstrates how prompt engineering can improve the quality and consistency of AI-generated responses across different text-based tasks.
 
-## Features
-- Q&A
-- Text summarization
-- Text sentiment classification (Positive / Negative / Neutral)
-- Basic vs improved prompt comparison
-- Manual evaluation scores saved to `evaluation_results.csv`
-- Small custom FAQ dataset in `faq_dataset.csv`
+## 📌 Project Overview
 
-> The FAQ CSV is sample project data; this version does not automatically retrieve answers from it or train the model.
+This project provides an interactive interface for experimenting with different prompting techniques. Users can ask questions, summarize text, classify sentiment, and compare basic prompts with improved prompts.
 
-## 1. Requirements
-- Python 3.10 or newer recommended
-- Internet connection
-- Google AI Studio API key
+The project is designed as a mini project to explore LLM integration, prompt design, and response evaluation.
 
-Create an API key at https://aistudio.google.com/ . Never share the key or commit it to GitHub.
+## ✨ Features
 
-## 2. Open the project in VS Code
-1. Extract the ZIP file.
-2. Open VS Code.
-3. Select **File → Open Folder**.
-4. Choose the extracted `LLM_Chatbot_Project` folder.
-5. Open **Terminal → New Terminal**.
+- **Question Answering:** Generate AI-powered answers to user questions.
+- **Text Summarization:** Convert longer text into concise summaries.
+- **Sentiment Classification:** Classify text as Positive, Negative, or Neutral.
+- **Prompt Comparison:** Compare responses generated using basic and improved prompts.
+- **Manual Evaluation:** Record evaluation scores for comparing response quality.
+- **Sample FAQ Dataset:** Includes a small custom FAQ dataset in CSV format.
+- **Interactive Interface:** Simple and user-friendly interface built with Streamlit.
 
-## 3. Create and activate virtual environment (Windows)
-Run these commands one at a time in the VS Code terminal:
+## 🛠️ Technology Stack
 
-```powershell
+| Technology | Purpose |
+|---|---|
+| Python | Application logic |
+| Streamlit | Interactive user interface |
+| Google Gemini API | Large language model integration |
+| Pandas | CSV and tabular data handling |
+| CSV | Sample FAQ and evaluation data |
+| python-dotenv | Environment variable configuration |
+
+## 📂 Project Structure
+
+```text
+LLM-Chatbot-Prompt-Engineering/
+│
+├── app.py              # Main Streamlit application
+├── prompts.py          # Prompt templates and prompt logic
+├── faq_dataset.csv     # Sample FAQ dataset
+├── requirements.txt    # Python dependencies
+├── .env.example        # Example environment configuration
+├── .gitignore          # Files excluded from Git
+└── README.md           # Project documentation
+```
+
+## ⚙️ Installation and Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/kohakadevaishnavi112-coder/LLM-Chatbot-Prompt-Engineering.git
+```
+
+### 2. Open the Project Folder
+
+```bash
+cd LLM-Chatbot-Prompt-Engineering
+```
+
+### 3. Create a Virtual Environment (Recommended)
+
+```bash
 python -m venv venv
-.\venv\Scripts\Activate.ps1
 ```
 
-If PowerShell blocks activation, try this in the same terminal:
-```powershell
-venv\Scripts\activate.bat
-```
-If the terminal still has trouble, use Command Prompt as the VS Code terminal or run `venv\Scripts\python.exe -m pip install -r requirements.txt` and `venv\Scripts\python.exe -m streamlit run app.py`.
+Activate it on Windows:
 
-## 4. Install packages
-```powershell
-python -m pip install --upgrade pip
+```bash
+venv\Scripts\activate
+```
+
+### 4. Install Dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-## 5. Add your API key
-1. In VS Code Explorer, copy `.env.example` and rename the copy to `.env`.
-2. Open `.env`.
-3. Replace `PASTE_YOUR_API_KEY_HERE` with your actual API key.
-4. Save the file.
-5. Do not upload `.env` to GitHub.
+### 5. Configure the Gemini API Key
 
-The default model is `gemini-2.5-flash`. If AI Studio shows a different available model, set `GEMINI_MODEL` in `.env` to that exact model ID. Model availability can change by account/region.
+1. Obtain an API key through [Google AI Studio](https://aistudio.google.com/).
+2. Create a file named `.env` in the project root directory.
+3. Add your own API key and model configuration:
 
-## 6. Run the project
-In the VS Code terminal:
-```powershell
-python -m streamlit run app.py
+```env
+GEMINI_API_KEY=your_actual_api_key_here
+GEMINI_MODEL=gemini-3.5-flash-lite
 ```
-A browser tab should open. If not, open the Local URL printed in the terminal (usually http://localhost:8501).
 
-## 7. Test the features
-- Q&A: `Explain machine learning in simple English.`
-- Summarization: paste a paragraph and choose Text Summarization.
-- Classification: `I loved this product. It works perfectly!`
-- Run the same input once with Basic prompt and once with Improved prompt, then enter your manual scores in the evaluation section.
+Replace `your_actual_api_key_here` with your own key. Never publish your actual API key in GitHub.
 
-## 8. Upload to GitHub safely
-1. Create a new empty repository on GitHub.
-2. In VS Code terminal, run:
-```powershell
-git init
-git add .
-git commit -m "Initial LLM chatbot project"
-git branch -M main
-git remote add origin YOUR_GITHUB_REPOSITORY_URL
-git push -u origin main
+### 6. Run the Application
+
+```bash
+streamlit run app.py
 ```
-Replace `YOUR_GITHUB_REPOSITORY_URL` with the repository URL copied from GitHub. Ensure `.env` is not included.
 
-## 9. Deploy online (optional)
-- Push the code to GitHub.
-- Open https://share.streamlit.io/ and deploy `app.py`.
-- In Streamlit Cloud app settings, add secrets:
-```toml
-GEMINI_API_KEY = "YOUR_REAL_API_KEY"
-GEMINI_MODEL = "gemini-2.5-flash"
+The application will open in your browser, usually at:
+
+```text
+http://localhost:8501
 ```
-For cloud deployment, the app reads environment variables. Streamlit Cloud exposes secrets as environment variables for this app. If your deployment setup doesn't, update `app.py` to read `st.secrets` as a fallback.
-- Keep your API key secret. Never add it to the repository.
 
-## Common errors
-- `ModuleNotFoundError`: activate the environment and run `pip install -r requirements.txt`.
-- API key error: check `.env` spelling and that the key is valid.
-- Model not found / unavailable: update `GEMINI_MODEL` in `.env` to an exact model ID available in your AI Studio/API account.
-- Quota error: check API usage and limits in Google AI Studio.
+## 🧪 How to Use
+
+1. Start the Streamlit application.
+2. Select a task from the available options.
+3. Enter a question or text, depending on the selected task.
+4. Generate a response using the Gemini API.
+5. Experiment with basic and improved prompts.
+6. Review the outputs and available evaluation scores.
+
+## 🧠 What I Learned
+
+- Integrating an LLM API into a Python application.
+- Designing prompts for different natural language processing tasks.
+- Building interactive applications using Streamlit.
+- Managing API keys with environment variables.
+- Organizing a Python project into multiple files.
+- Exploring response comparison and manual evaluation.
+
+## 🔐 Security
+
+- Keep `.env` out of version control.
+- Never commit API keys or other secrets.
+- Use `.env.example` as a template without real credentials.
+- Keep your `.gitignore` configured to exclude `.env` and virtual environment folders.
+
+## 🚀 Future Improvements
+
+- Add automated evaluation metrics for response quality.
+- Expand the FAQ dataset and implement retrieval-based answers.
+- Improve error handling and API usage feedback.
+- Add conversation history and additional NLP tasks.
+- Compare different prompt strategies using a consistent evaluation dataset.
+
+
+---
+
+*This project was developed for learning and demonstrating LLM integration and prompt engineering concepts.*
