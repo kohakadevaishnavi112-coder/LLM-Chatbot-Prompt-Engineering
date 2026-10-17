@@ -1,0 +1,7 @@
+question,answer,category
+"What is Python?","Python is a popular programming language known for its readable syntax.","Programming
+"What is an LLM?","A Large Language Model is an AI model trained to understand and generate text.","AI
+"What is prompt engineering?","Prompt engineering means designing instructions to guide an AI model's response.","AI
+"What is machine learning?","Machine learning is a field of AI where systems learn patterns from data.","AI
+"What is summarization?","Summarization creates a shorter version of a text while preserving key information.","NLP
+"What is text classification?","Text classification assigns text to predefined categories or labels.","NLP
